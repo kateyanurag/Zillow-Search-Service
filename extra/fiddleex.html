@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Assignment-8
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="">
+    <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+     <script src="http://cdn.wideskyhosting.com/js/jquery.validate.js"></script>
+   <!-- <script src="js/bootstrap.js"></script>-->
+     <!--<script src="js/zillow1.js"></script> -->
+
+    <script>
+        $("document").ready(function(){
+            $("form").validate();
+
+        });
+    </script>
+
+</head>
+<body >
+        <form action="" method="post">
+            <label for="addr" class="col-lg-4 control-label">Address*:</label>
+             <input type="text" class="required" id="addr" name="addr" placeholder="Enter Address" >
+             <input type="submit" id="submit" value="submit">
+        </form>
+        
+</body>
+</html>

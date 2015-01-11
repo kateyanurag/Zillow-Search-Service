@@ -1,0 +1,6 @@
+
+function func2(){
+	alert("In func");
+}
+
+

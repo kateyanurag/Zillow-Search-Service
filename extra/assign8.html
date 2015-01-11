@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Assignment-8
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+     <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+     <script src="js/zillow.js"></script> 
+
+     <script type="text/javascript">
+     function func(){
+     	alert("Helloo");
+     }
+
+   	$(document).ready(function() { 
+	 	$("#zillowForm").validate({ 
+	    		rules: { 
+	      			name: "required",    // simple rule, converted to {required: true} 
+	      			city: {             // compound rule 
+	      				required: true
+	      			}, 
+	      			state: { 
+	       				 required: true
+	      			}
+	   		 }, 
+	   		 messages: { 
+	     			 comment: "Please enter a comment." 
+	   		 } 
+	  	}); 
+	}); 
+
+     </script>
+</head>
+<body class="background">
+
+    
+    <div class="container main-div"> 
+        <h3><b>Search Your Property Here</b></h3>
+        <form class="horizontal-form" name="zillow_form" id="zillowForm" method="post" onsubmit="func()">
+
+
+			        <input type="text" class="form-control required" id="addr" name="addr" placeholder="Enter Address" >
+			        <input type="text" class="form-control required" id="city" name="city" placeholder="Enter Address" >
+			        <input type="text" class="form-control required" id="state" name="state" placeholder="Enter Address" >
+			        <button id="searchButton" class="btn" type="submit">Search</button>
+        <!--
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-7" >
+                            <input type="text" class="form-control required" id="addr" name="addr" placeholder="Enter Address" >
+                            <label for="addr" class="col-lg-4 control-label">Address*:</label>
+                            <div class="col-lg-8 example">
+                                <input type="text" class="form-control required" id="addr" name="addr" placeholder="Enter Address" >
+                            </div>
+                            <h5 class="error" id="addr_error">**This field is required</h5> 
+                        </div>
+                        <div class="col-lg-3" >
+                            <label for="city" class="col-lg-4 control-label">City*:</label>
+                            <div class="col-lg-8 example">
+                                <input type="text" class="form-control input-text" id="city" placeholder="Enter City">
+                            </div>
+                            <h5 class="error" id="city_error">**This field is required</h5>
+                        </div>
+                        <div class="col-lg-2" >
+                            <label for="state" class="col-lg-4 control-label">State*:</label>
+                            <div class="col-lg-8 example">
+                                <select class="form-control dropdown-state">
+                                      <option>CA</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                </select>
+                            </div>
+                            <h5 class="error" id="state_error">**This field is required</h5>
+                        </div>
+                        <div class="col-lg-2 btn-grp" >
+                            <div class="col-lg-4 example">
+                                <button id="searchButton" class="btn" type="submit">Search</button>
+                                <input id= "submitBtn"  type="submit" name="search_btn" value="SEARCH" class="btn"> 
+                            </div>
+                        </div>
+                        <div class="col-lg-2 zillow-img" >
+                            <img src="zillow.jpg" width="120" height="60" align="right">
+                        </div>
+
+                    </div>  
+                </div>
+            </div>-->
+        </form>
+
+        <hr>
+    </div>
+
+
+
+
+</body>
+</html>

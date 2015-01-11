@@ -1,0 +1,299 @@
+<html>
+    <head>
+        <style type="text/css">
+            .main_div{
+                position: relative;
+                border: 2px solid;
+                width: 500px;
+                margin-left: 570px;
+                margin-top: 100px;
+                text-decoration: none;
+                
+            }
+            .img{
+                position: relative;
+                margin-left: 200px;
+            }
+            .btn{
+                margin-left: 140px;
+                margin-top: -50px;
+            }
+            .div1{
+                position: relative;
+                margin-top: 60px;
+                margin-left: 60px;
+            }
+            .zillow_data{
+                visibility: hidden;
+                margin-left: 75px;
+            }
+            #text_area{
+                border-radius: 5px;
+                border-width: 2px;
+                border-color: black;
+                background: #F0E68C;
+                width: 1390px;
+                height: 30px;
+                margin-left: 75px;
+                border: 2px solid;
+                font-size: 20px;
+                text-decoration: none;
+            }
+            table, td{
+                margin-left: 100px;
+                margin-left:75px;
+            }
+            #head{
+                margin-left: 590px;
+                color: #336600;
+                text-decoration: underline;
+            }
+            .footer{
+                margin-left: 550px;
+                justify-content: center;
+            }
+            #error_tag{
+                color: Red;
+                margin-left: 460px;
+                
+            }
+            #zillow_link{
+                text-decoration: none;
+                color: blue;
+            }
+        </style>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script type="text/javascript">
+        
+        function prepare_table(data){
+            //document.getElementById("zillow_div").innerHTML("<p> HEYAA </p>");
+            //document.getElementById("zillow_div").style.visibility='visible';
+            var overall_change = "30 days overall change";
+            if(data["overall_change"].contains("-")){
+                overall_change = overall_change + "<img src=\"down.gif\">";
+                data["overall_change"] = data["overall_change"].split("-")[1];
+            }else{
+                overall_change = overall_change + "<img src=\"up.gif\">";
+            }
+            data["overall_change"] = "$" + data["overall_change"];
+            overall_change = overall_change + ":";
+            
+            var rent_change = "All Time Rent Change";
+            if(data["rent_change"].contains("-")){
+                rent_change = rent_change + "<img src=\"down.gif\">";
+                data["rent_change"] = data["rent_change"].split("-")[1];
+            }else{
+                rent_change = rent_change + "<img src=\"up.gif\">";
+            }
+            data["rent_change"] = "$" + data["rent_change"];
+             rent_change = rent_change + ":";
+            
+            var property_estimate = "Zestimate&reg;" +" Property Estimate as of " + data["property_estimate_date"] + ":";
+            var rent_estimate = "Rent Zestimate&reg; Valuation as of " + data["rent_estimate_date"] + ":";
+            
+            var address = "ABCDE";
+            address = data["street"]+data["city"]+data["state"]+data["zipcode"];
+            var zillow_url = " <a id=\"zillow_link\" href= " + "\"" + data["homedetails"] + "\"" + ">" + address +"</a> ";
+            
+            var zillow_table = "<h1 id=\"head\"> Search Results </h1>"+
+                                "<div id=\"text_area\"><b>See more details for "+ zillow_url +" on Zillow</b></div>" + "<br>" +
+                                "<table style=\"width:79%\">" +
+                                    "<tr>" +
+                                        "<td width=\"25%\"><b> Property Type: </b></td><td align=\"left\" width=\"12%\">" + data["property_type"] + "</td>"+
+                                       "<td  width=\"40%\"> <b>Last Sold Price: </td><td align=\"right\">" + data["last_sold_price"] + "</td>"+
+                                    "</tr>" +
+                                    "<tr>" +
+                                        "<td> <b>Year Built: </b></td><td align=\"left\" >" + data["year_built"] + "</td>"+
+                                       "<td> <b>Last Sold Date:</b> </td><td align=\"right\">" + data["last_sold_date"] + "</td>"+
+                                    "</tr>" +
+                                    "<tr>" +
+                                        "<td> <b>Lot Size: </td><td align=\"left\"  >" + data["lot_size"] + "</td>"+
+                                       "<td><b>"+ property_estimate +"</b></td><td align=\"right\">" + data["property_estimate"] + "</td>"+
+                                    "</tr>" +
+                                    "<tr>" +
+                                        "<td> <b>Finished Area: </b></td><td align=\"left\" >" + data["finished_area"] + "</td>"+
+                                       "<td><b>"+ overall_change +"</b></td><td align=\"right\">" + data["overall_change"] + "</td>"+
+                                    "</tr>" +
+                                    "<tr>" +
+                                        "<td> <b>Bathrooms: </b></td><td align=\"left\" >" + data["bathrooms"] + "</td>"+
+                                       "<td> <b>All time property Range:</b> </td><td align=\"right\">" + data["property_range"] + "</td>"+
+                                    "</tr>" +
+                                    "<tr>" +
+                                        "<td><b> Bedrooms: </b></td><td align=\"left\" >" + data["bedrooms"] + "</td>"+
+                                       "<td><b>" + rent_estimate +"</b></td><td align=\"right\">" + data["last_sold_price"] + "</td>"+
+                                    "</tr>" +
+                                    "<tr>" +
+                                        "<td> <b>Tax Assesment Year: </b></td><td align=\"left\" >" + data["taxAssessmentYear"] + "</td>"+
+                                       "<td><b>" + rent_change +" </b></td><td align=\"right\">" + data["rent_change"] + "</td>"+
+                                    "</tr>" +
+                                    "<tr>" +
+                                        "<td> <b>Tax Assesment: </b></td><td align=\"left\" >" + data["taxAssessment"] + "</td>"+
+                                       "<td><b>All Time rent range: </b></td><td align=\"right\">" + data["rent_range"] + "</td>"+
+                                    "</tr>" +
+                                "</table>" ;
+                               /*  "<table>"+
+                                    "<tr>"+ 
+                                        "<td>Property Type::</td>"+
+                                        "<td>"+ data["property_type"] + "</td>" +
+                                        "<td> Last Sold Price: </td>" +
+                                        "<td>" + data["last_sold_price"] + "</td>" +
+                                    "</tr>"+
+                                "</table>"; */
+            return zillow_table;
+        }
+     
+		$("document").ready(function(){
+			$(".zillow_form").submit(function(){
+				var address = document.getElementById("addr").value;
+				var city = document.getElementById("city").value;
+                var state_list = document.getElementById("states");
+                var state = state_list.options[state_list.selectedIndex].text;
+                if(address.trim() == "" && city.trim() == "" && state == "Select State"){
+                    alert("Please enter value for Address, City and select a State");
+                    return;
+                }else if(address.trim() == "" && city.trim() == ""){
+                    alert("Please enter value for Address and City");
+                    return;
+                }else if(address.trim() == "" && state == "Select State"){
+                    alert("Please enter value for Address and select a State");
+                    return;
+                }else if(city.trim() == "" && state == "Select State"){
+                    alert("Please enter value for city and select a State");
+                    return;
+                }else if(address.trim() == ""){
+                    alert("Please enter value for Address");
+                    return;
+                }else if(city.trim() == ""){
+                    alert("Please enter value for City");
+                    return;
+                }else if(state == "Select State"){
+                    alert("Please select a State");
+                    return;
+                }
+                
+                
+                address = address.split(" ").join("+");
+                city = city.split(" ").join("+");
+	   var fields = {
+			"request": "zillow", "addr": address, "city": city, "state": state
+		};
+                fields.addr=address;
+	 fields = $(this).serialize() + "&" + $.param(fields);
+	//alert("Data Serialized");
+                var footer ="<p class=\"footer\"> &copy;Zillow, Inc., 2006-2014. Use is subject to<a href=\"http://www.zillow.com/corp/Terms.htm\" > Terms of Use</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"http://www.zillow.com/zestimate/\" > What's a Zestimate?</a></p>";
+				$.ajax({
+					type: "POST",
+					dataType: "json",
+					url: "http://cs-server.usc.edu:24106/zillow.php",
+					data: fields,
+					success: function(data) {
+                        var zillow_table = "";
+                        var json_obj = data["json"];
+                        if(data["message"] == "ERROR"){
+                           // alert("RECORD NOT FOUND");
+                            zillow_table = "<h3 id=\"error_tag\">Error: No exact match found!! - Verify that the given address is correct</h3>";
+                        }else{
+                            //alert("RECORD FOUND");
+                            alert("Link1"+data["one_year"]);
+                             alert("Link2"+data["five_year"]);
+                              alert("Link3"+data["ten_year"]);
+                            zillow_table = prepare_table(data);
+                        }
+                        $(".zillow_data").empty();
+                        $(".zillow_data").append(zillow_table+footer);
+                        $(".zillow_data").css("visibility","visible");
+				    },
+                     error: function(data) {
+                        zillow_table = "<h3 id=\"error_tag\">Error: No exact match found!! - Verify that the given address is correct</h3>";
+                        $(".zillow_data").empty();
+                        $(".zillow_data").append(zillow_table+footer);
+                        $(".zillow_data").css("visibility","visible");
+                     }
+                });
+				return false;
+	       });
+        });
+</script>	
+
+	
+    </head>
+    <body>
+         <h3 style="margin-left: 670px;  margin-top: 80px; font-size: 30px;">Real Estate Search</h3>
+       	<div class="main_div">
+		
+			<form class="zillow_form" method="post">
+				<div class="div1">
+					Street Address* &nbsp;: 
+						<input type="text" name="st_addr" id="addr" placeholder="949 W Adams Blvd"><br>
+					City*    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+						<input type="text" name="city_name" id="city" placeholder="Los Angeles"><br>
+					State*  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+			       			 <select id="states" >
+				   			<option value="select">Select State</option>
+                                 <option value="AK">AK</option>
+                                 <option value="AL">AL</option>
+                                <option value="AR">AR</option>
+                                 <option value="AZ">AZ</option>
+                                 <option value="CA">CA</option>
+                                 <option value="CO">CO</option>
+                                 <option value="CT">CT</option>
+                                 <option value="DC">DC</option>
+                                 <option value="DE">DE</option>
+                                 <option value="FL">FL</option>
+                                  <option value="GA">GA</option>
+                                  <option value="HI">HI</option>
+                                 <option value="IA">IA</option> 
+                                 <option value="ID">ID</option>
+                                  <option value="IL">IL</option>
+                                  <option value="IN">IN</option>
+                                  <option value="KS">KS</option>
+                                  <option value="KY">KY</option>
+				    			<option value="LA">LA</option>				    			
+				    		       <option value="MA">MA</option>
+                                 <option value="MD">MD</option>
+                                 <option value="ME">ME</option>
+                                 <option value="MI">MI</option>
+                                 <option value="MN">MN</option>
+                                  <option value="MO">MO</option>
+                                 <option value="MS">MS</option>
+                                 <option value="MT">MT</option>
+                                  <option value="NC">NC</option>
+                                   <option value="ND">ND</option>
+                                 <option value="NE">NE</option>
+                                   <option value="NH">NH</option>
+                                 <option value="NJ">NJ</option>
+                                 <option value="NM">NM</option>
+                                 <option value="NV">NV</option>
+                                 <option value="NY">NY</option>
+                                 <option value="OH">OH</option>
+                                 <option value="OK">OK</option>
+                                 <option value="OR">OR</option>
+                                 <option value="PA">PA</option>
+                                 <option value="RI">RI</option>
+                                 <option value="SC">SC</option>
+                                 <option value="SD">SD</option>
+                                 <option value="TN">TN</option>
+                                 <option value="TX">TX</option>
+                                 <option value="UT">UT</option>
+                                 <option value="VT">VT</option>
+                                 <option value="VA">VA</option>
+                                 <option value="WA">WA</option>
+                                 <option value="WV">WV</option>
+                                 <option value="WI">WI</option>
+                                 <option value="WY">WY</option>
+						</select>    
+				 	<p><input id= "submitBtn"  type="submit" name="search_btn" value="SEARCH" class="btn"> 
+                    <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" /> 
+                        <br>
+                             <i>* - Mandatory fields.</i>
+                    </p>
+				</div>
+			<form>
+               
+	</div>
+    
+    <div class="zillow_data" id="zillow_div"></div>  
+	<noscript>      
+    </body>
+</html>

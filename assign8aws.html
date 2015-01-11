@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>
+		Assignment 8 - Zillow Property Search
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+	<!--<link rel="stylesheet" type="text/css" href="zillow.css">-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script type="text/javascript" src="validation.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="zillow.js"></script>
+	<link rel="stylesheet" type="text/css" href="zillow.css">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<style>
+		.DemoBS3{
+		      margin:40px;
+		}
+	</style>
+	<style type="text/css">
+h2{
+    margin: 0;     
+    color: #666;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{
+    background: #333;    
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin-top: 20px;
+}
+.bs-example{
+	margin: 20px;
+}
+</style>
+</head>
+<body class="background">
+
+
+<div class="container">
+	<h3 class="h2 my-h3"><b>Search Your Property Here</b></h3><br><br>
+	<form class="form" method="post" action="">
+		<div class="row">
+			<div class="col-lg-12 ">
+				<div class="row">
+					<div class="col-lg-3 ">
+						<label for="addr" class="col-lg-4 control-label my-label">Address*:</label>
+						<div class="row">
+							<div class="col-lg-7  ">
+				     		 		<input type="text" class="form-control" id="addr" name="addr" placeholder="Enter address">
+				     		 		<div id="addr_error"><br></div>
+				   	 		</div>	
+				   	 	</div>
+					</div>
+					<div class="col-lg-3  ">
+						<label for="city" class="col-lg-3   control-label my-label">City*:</label>
+						<div class="row">
+							<div class="col-lg-7  ">
+			     		 			<input type="text" class="form-control" id="city" name="city" placeholder="City">
+			     		 			<div id="city_error"><br></div>
+			   	 			</div>
+						</div>
+						
+					</div>
+					<div class="col-lg-3 ">
+						<label for="state" class="col-lg-4   control-label my-label">State*:</label>
+							<div class="row">
+								<div class="col-lg-7   example">
+									<select class="form-control" id="state" name="state">
+											<option value="">Select State</option>
+										  <option value="AK">AK</option>
+								                                 <option value="AL">AL</option>
+								                                <option value="AR">AR</option>
+								                                 <option value="AZ">AZ</option>
+								                                 <option value="CA">CA</option>
+								                                 <option value="CO">CO</option>
+								                                 <option value="CT">CT</option>
+								                                 <option value="DC">DC</option>
+								                                 <option value="DE">DE</option>
+								                                 <option value="FL">FL</option>
+								                                  <option value="GA">GA</option>
+								                                  <option value="HI">HI</option>
+								                                 <option value="IA">IA</option> 
+								                                 <option value="ID">ID</option>
+								                                  <option value="IL">IL</option>
+								                                  <option value="IN">IN</option>
+								                                  <option value="KS">KS</option>
+								                                  <option value="KY">KY</option>
+										      <option value="LA">LA</option>				    			
+										       <option value="MA">MA</option>
+								                                 <option value="MD">MD</option>
+								                                 <option value="ME">ME</option>
+								                                 <option value="MI">MI</option>
+								                                 <option value="MN">MN</option>
+								                                  <option value="MO">MO</option>
+								                                 <option value="MS">MS</option>
+								                                 <option value="MT">MT</option>
+								                                  <option value="NC">NC</option>
+								                                   <option value="ND">ND</option>
+								                                 <option value="NE">NE</option>
+								                                   <option value="NH">NH</option>
+								                                 <option value="NJ">NJ</option>
+								                                 <option value="NM">NM</option>
+								                                 <option value="NV">NV</option>
+								                                 <option value="NY">NY</option>
+								                                 <option value="OH">OH</option>
+								                                 <option value="OK">OK</option>
+								                                 <option value="OR">OR</option>
+								                                 <option value="PA">PA</option>
+								                                 <option value="RI">RI</option>
+								                                 <option value="SC">SC</option>
+								                                 <option value="SD">SD</option>
+								                                 <option value="TN">TN</option>
+								                                 <option value="TX">TX</option>
+								                                 <option value="UT">UT</option>
+								                                 <option value="VT">VT</option>
+								                                 <option value="VA">VA</option>
+								                                 <option value="WA">WA</option>
+								                                 <option value="WV">WV</option>
+								                                 <option value="WI">WI</option>
+								                                 <option value="WY">WY</option>
+									</select>
+									<div id="state_error"><br></div>
+								</div>
+							</div>
+					</div>
+					<div class="col-lg-2  btn-grp" >
+						<div class="col-lg-4  ">
+							<input id= "submitBtn"  type="submit" name="search_btn" value="SEARCH" class="btn"> 
+		   	 			</div>
+					</div>
+					<div class="col-lg-1   zillow-img" >
+						<img src="zillow.jpg" width="80" height="40" align="right">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<br>
+	<hr style="color:#003300;" >	
+	<br>
+	<div id="wait_msg"></div>
+	<ul id="zillowTab" class="nav nav-tabs" style=" visibility: hidden">
+	<li class="active"><a href="#basic-info" data-toggle="tab" style="color: #003300; background-color:#E6CC80;"><b>Basic Info</b></a></li>
+	<li><a href="#zestimates" data-toggle="tab" style="color: #003300;background-color:#E6CC80;"><b>Historical Zestimates</b></a></li>
+	</ul>
+	<div id="zillowTabContent" class="tab-content"  style=" visibility: hidden">
+		<div class="tab-pane in active" id="basic-info"></div>
+		<div class="tab-pane " id="zestimates" >
+			<div id="zillowCarousel" class="carousel slide" data-interval="3000" data-ride="carousel"  style="margin-top: 0px">
+				
+				<div class="carousel-inner" id="zillow_carousel">
+					<div class="active item " id="carousel_item1" style="background-color: white;">
+						<img src="app.gif">
+						<div class="carousel-caption">
+							<h3 class="caption_h3">Historical Zestimates for past 1 years</h3>
+							<p  class="caption_p">2636 Menlo Ave, Los Angeles, CA-90007 </p>
+						</div>
+
+					</div>
+					<div class="item"  id="carousel_item2" style="background-color: white;">
+						<img src="app.gif">
+						<div class="carousel-caption">
+							<h3 class="caption_h3">Historical Zestimates for past 5 years</h3>
+							<p class="caption_p">2636 Menlo Ave, Los Angeles, CA-90007 </p>
+						</div>
+						
+					</div>
+					<div class="item"  id="carousel_item3" style="background-color: white;">
+						<img src="app.gif">
+						<div class="carousel-caption">
+							<h3 class="caption_h3">Historical Zestimates for past 10 years</h3>
+							<p class="caption_p">2636 Menlo Ave, Los Angeles, CA-90007 </p>
+						</div>
+						
+					</div>
+
+					
+				</div>
+				<ol class="carousel-indicators right" >
+						<li data-target="#zillowCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#zillowCarousel" data-slide-to="1"></li>
+						<li data-target="#zillowCarousel" data-slide-to="2"></li>
+				</ol> 
+					
+						
+				
+						
+				<a class="carousel-control left" href="#zillowCarousel" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<a class="carousel-control right" href="#zillowCarousel" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
+		</div>
+	</div>		
+	<br>				    
+	<div id="zillow_footer" class="footer"></div>
+</div>
+</body>
+</html>

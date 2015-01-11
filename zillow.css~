@@ -1,0 +1,27 @@
+.background{
+	background-image: url('img.jpg');
+	color: #003300;
+}
+.my-label{
+	font-weight: bold;
+	font-size: 20px;	
+}
+.my-h3{
+	text-align: center;
+	text-decoration: underline;
+	font-weight: bolder;
+}
+.nav-tabs{
+	 border-bottom:  : 2px solid black;
+}
+.zillow_table{
+	background-color: #BAEEBA;
+	border-radius: 10px 10px 10px 10px;
+}
+.fb_share{
+	height: 20;
+	width: 50;
+}
+.btn{
+	background-color:  #BAEEBA;
+}

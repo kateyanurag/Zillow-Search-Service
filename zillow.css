@@ -1,0 +1,88 @@
+.background{
+	background-image: url('background.jpg');
+	color: #003300;
+}
+.my-label{
+	font-weight: bold;
+	font-size: 18px;	
+}
+.my-h3{
+	text-align: center;
+	text-decoration: underline;
+	font-weight: bolder;
+}
+.nav-tabs{
+	 border-bottom:  : 2px solid black;
+}
+.zillow_table{
+	background-color: #E6CC80;
+	border-radius: 10px 10px 10px 10px;
+
+}
+.fb_share{
+	height: 20;
+	width: 50;
+}
+.btn{
+	background-color:  #E6CC80;
+	color: #003300;
+}
+
+#wait_msg{
+	text-align: center;
+}
+
+#error_tag{
+	color: red;
+	font-weight: bolder;
+}
+.footer{
+	text-align: center;
+}
+
+.carousel{
+	margin-top: 0px;
+}
+/* Carousel items */	
+.carousel-inner{
+}
+.carousel_item{
+	color: black;
+	background-color: black;
+}
+
+
+/* Carousel indicators */	
+#carousel_dots{
+	text-align: right;
+}
+.carousel-caption{
+	text-align: left;
+	background-color: #AD8533;
+	left: 0%;
+	width: 100%;
+	padding: 0px;
+	padding-bottom: 15px;
+	bottom: 0px;
+	 opacity: 0.5;
+    	filter: alpha(opacity=50);
+
+}
+.carousel-indicators{
+	left: 0%;
+	bottom: 0px;
+	margin-left: 0px;
+	width: 100%;
+	text-align: right;
+	padding-right: 90px;
+	color: yellow;
+}
+.caption_h3{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	padding-left: 20px;
+}
+.caption_p{
+	padding-left: 20px;
+}

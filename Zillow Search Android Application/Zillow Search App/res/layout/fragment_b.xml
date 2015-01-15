@@ -1,0 +1,151 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.anurag.zillow_search.FragmentB" >
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <!--
+         <ImageView
+        android:id="@+id/graph"
+        android:layout_width="600px"
+        android:layout_height="300px"
+        android:layout_above="@+id/btnNext"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/smileyface" /> 
+
+    <TextView
+        android:id="@+id/graphDesc1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:text="Medium Text"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/graphDesc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/graphDesc1"
+        android:layout_below="@+id/graphDesc1"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnPrev"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Previous" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Next" /> -->
+
+    <TextView
+        android:id="@+id/footer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/copyright"
+        android:layout_centerHorizontal="true"
+        android:text="@string/zfooter1"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/footer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/footer1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/zfooter2"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+  <!--    <Button
+        android:id="@+id/btnPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_toRightOf="@+id/graphDesc2"
+        android:text="Prev" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/graph"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/btnPrev"
+        android:text="Next" /> -->
+
+    <ImageView
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/graphDesc2"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/smileyface"
+        android:layout_marginBottom="10dp"
+        android:scaleType= "fitXY" />
+
+    <TextView
+        android:id="@+id/copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prevb"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:text="@string/copyright"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        
+        android:layout_below="@+id/graph"
+        android:layout_toRightOf="@+id/prevb"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/right1"/>
+
+    <ImageView
+        android:id="@+id/prevb"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/graph"
+        android:layout_marginLeft="85dp"
+        android:src="@drawable/left1" />
+
+    <TextView
+        android:id="@+id/graphDesc1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Historical Zestimates for past 1 year"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/graphDesc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/graphDesc1"
+        android:layout_centerHorizontal="true"
+        android:text="Small Text"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

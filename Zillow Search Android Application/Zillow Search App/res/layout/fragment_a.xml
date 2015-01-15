@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.anurag.zillow_search.FragmentA"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+     >
+
+    <!-- TODO: Update blank fragment layout -->
+
+       <ListView
+           android:id="@+id/detailsList"
+           android:layout_width="match_parent"
+           android:layout_height="320dp"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentTop="true" 
+           android:layout_marginLeft="0dp"
+           android:layout_marginTop="0dp"    
+           >
+       </ListView>
+
+       <TextView
+           android:id="@+id/footer1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignTop="@+id/graphDesc2"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="18dp"
+           android:text="@string/zfooter1"
+           android:textAppearance="?android:attr/textAppearanceSmall" />
+
+       <TextView
+           android:id="@+id/footer2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/footer1"
+           android:layout_centerHorizontal="true"
+           android:text="@string/zfooter2"
+           android:textAppearance="?android:attr/textAppearanceSmall" />
+
+       <TextView
+           android:id="@+id/graphDesc2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true"
+           android:layout_marginBottom="56dp"
+           android:text="@string/copyright"
+           android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
